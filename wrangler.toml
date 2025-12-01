@@ -1,0 +1,8 @@
+name = "flylighttoursandtravels"
+compat_date = "2025-12-01"
+
+[env.production]
+route = "flylighttoursandtravels.workers.dev"
+
+[assets]
+directory = "./assets"
