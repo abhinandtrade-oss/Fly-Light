@@ -10623,7 +10623,7 @@ ul {
   position: relative;
   display: block;
   width: 100%;
-  overflow-x: auto;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
 
