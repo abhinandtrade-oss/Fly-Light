@@ -6,4 +6,4 @@ main = "src/index.js"
 route = "flylighttoursandtravels.workers.dev"
 
 [assets]
-directory = "./assets"
+directory = "."
