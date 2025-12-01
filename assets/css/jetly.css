@@ -439,6 +439,75 @@ ul {
 /*--------------------------------------------------------------
 # Navigations One
 --------------------------------------------------------------*/
+
+/***************/
+
+/* 1) global safety */
+html, body {
+  box-sizing: border-box; /* ensures width includes padding and border */
+  width: 100%;
+  overflow-x: hidden;     /* stop any accidental horizontal overflow */
+  -webkit-overflow-scrolling: touch;
+}
+*, *::before, *::after { box-sizing: inherit; }
+
+/* 2) ensure header fills full width without using 100vw */
+.main-header {
+  position: absolute;
+  left: 0;
+  right: 0;       /* use left+right to pin, avoids vw overflow issues */
+  top: 0;
+  width: auto;    /* let left/right determine width */
+}
+
+/* 3) prevent large wrappers from forcing horizontal scroll */
+.main-menu__wrapper,
+.main-menu__wrapper-inner,
+.main-menu__left,
+.main-menu__right {
+  max-width: 100%;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+/* 4) clamp swiper / slider and background layers if present */
+.swiper-container,
+.swiper-wrapper,
+.swiper-slide,
+.image-layer-three,
+.main-slider-three .img {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  background-size: cover;
+  background-position: center;
+}
+
+/* 5) reduce header/menu horizontal padding on small screens */
+@media (max-width: 991px) {
+  .main-menu__wrapper { padding: 0 16px; } /* reduce wide 55px padding */
+  .main-menu__search-cart-call-box { padding: 18px 0; }
+  .main-menu__search-cart-box { padding: 6px 0; }
+}
+
+/* 6) extra safety for mobile nav or fixed off-canvas wrappers */
+.mobile-nav__wrapper,
+.mobile-nav {
+  width: 100%;
+  max-width: 100%;
+  left: 0;
+  box-sizing: border-box;
+}
+
+/* 7) visual debug helper (toggle while debugging, remove once fixed) */
+/* * { outline: 1px solid rgba(255,0,0,0.04); } */
+
+
+/*+++++++++ */
+
+
+
 .main-header {
   background: transparent;
   position: absolute;
