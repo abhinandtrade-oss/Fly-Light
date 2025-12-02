@@ -179,8 +179,23 @@
 
         <!--Page Header Start-->
         <section class="page-header">
-            <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg)">
-            </div>
+            <div id="pageHeaderBg" class="page-header-bg"></div>
+
+<script src="assets/data/data.json" type="application/json" id="imageData"></script>
+<script>
+  // Fetch JSON stored as a file
+  fetch("assets/data/data.json")
+    .then(res => res.json())
+    .then(data => {
+      const imgId = "IM-138";          // your short ID
+      const imageUrl = data[imgId];    // read URL from JSON
+
+      const header = document.getElementById("pageHeaderBg");
+      header.style.backgroundImage = `url(${imageUrl})`;
+    })
+    .catch(err => console.error("Image load error:", err));
+</script>
+
             <div class="container">
                 <div class="page-header__inner">
                     <h2>Our faqs</h2>
@@ -607,4 +622,5 @@
 
 
 </html>
+
 
