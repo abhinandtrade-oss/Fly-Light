@@ -12,6 +12,12 @@
     <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
     <meta name="description" content="fly_light_tours_and_travels" />
 
+    <!-- Add this in your <head>   form    -->
+<link rel="stylesheet" href="flight-booking.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+<script src="/_sdk/element_sdk.js"></script>
+<script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -275,72 +281,409 @@
         <!--Main Slider End-->
 
 <!--Request Start-->
-<section class="request">
-    <div class="request__shape-1 float-bob-x">
-        <img src="assets/images/shapes/request-shape-1.png" alt="">
-    </div>
-    <div class="request__shape-2 float-bob-x">
-        <img src="assets/images/shapes/request-shape-2.png" alt="">
-    </div>
-    <div class="container">
-        <div class="request__top">
-            <form action="https://formsubmit.co/flylighttoursandtravels@gmail.com" method="POST" class="request__form contact-form-validated">
-
-                <ul class="list-unstyled request__input-list clearfix">
-
-                    <li>
-                        <div class="request__input-box">
-                            <input type="text" name="fly_from" placeholder="Fly from" required>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="request__input-box">
-                            <input type="text" name="fly_to" placeholder="Fly to" required>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="request__input-box">
-                            <input type="text" name="date" placeholder="Select date" id="datepicker" required>
-                            <div class="get-flight__icon-box">
-                                <i class="far fa-calendar-alt"></i>
-                            </div>
-                        </div>
-                    </li>
 
 
+<!-- Paste this inside your existing <body> where you want the form -->
+<section class="flight-booking-wrapper">
+  <div class="flight-booking-container">
+    <header class="flight-booking-header">
+      <h1 class="flight-company-name" id="companyName">Fly Light Tours and Travels</h1>
+      <p class="flight-form-title" id="formTitle">Book Your Flight</p>
+    </header>
 
+    <main class="flight-form-section">
+      <div class="flight-form-box">
+        <form
+          id="bookingForm"
+          action="https://formsubmit.co/flylighttoursandtravels@gmail.com"
+          method="POST"
+        >
+          <div class="flight-form-grid">
+            <div class="flight-form-group full-width">
+              <label for="name">Full Name *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="Enter your full name"
+              />
+            </div>
 
-                    <li>
-                        <div class="request__input-box">
-                            <input type="text" name="passengers" placeholder="No of Pax" required>
-                        </div>
-                    </li>
+            <div class="flight-form-group">
+              <label for="from">From *</label>
+              <input
+                type="text"
+                id="from"
+                name="from"
+                required
+                placeholder="Departure city"
+              />
+            </div>
 
+            <div class="flight-form-group">
+              <label for="to">To *</label>
+              <input
+                type="text"
+                id="to"
+                name="to"
+                required
+                placeholder="Destination city"
+              />
+            </div>
 
+            <div class="flight-form-group">
+              <label for="journeyDate">Date of Journey *</label>
+              <input
+                type="date"
+                id="journeyDate"
+                name="journey_date"
+                required
+              />
+            </div>
 
-
-                   
-                    <li>
-                        <div class="request__input-box">
-                            <input type="text" name="contact" placeholder="Contact number or Email" required>
-                        </div>
-                    </li>
-
-                </ul>
-
-                <div class="request__bottom">
-                    <p class="request__bottom-text">
-                        <span>*</span> After sending request we will contact you for more details about charter.
-                    </p>
-                    <button type="submit" class="thm-btn request__btn">Book Now</button>
+            <div class="flight-form-group">
+              <label>Journey Type *</label>
+              <div class="flight-journey-type-group">
+                <div class="flight-radio-option">
+                  <input
+                    type="radio"
+                    id="oneWay"
+                    name="journey_type"
+                    value="One Way"
+                    checked
+                  />
+                  <label for="oneWay">One Way</label>
                 </div>
+                <div class="flight-radio-option">
+                  <input
+                    type="radio"
+                    id="twoWay"
+                    name="journey_type"
+                    value="Two Way"
+                  />
+                  <label for="twoWay">Two Way</label>
+                </div>
+              </div>
+            </div>
 
-            </form>
-        </div>
-    </div>
+            <div
+              class="flight-form-group flight-return-date-group"
+              id="returnDateGroup"
+            >
+              <label for="returnDate">Return Date *</label>
+              <input
+                type="date"
+                id="returnDate"
+                name="return_date"
+              />
+            </div>
+
+            <div class="flight-form-group full-width">
+              <label for="whatsapp">WhatsApp Number *</label>
+              <input
+                type="tel"
+                id="whatsapp"
+                name="whatsapp_number"
+                required
+                placeholder="+91 1234567890"
+                pattern="[+]?[0-9]{10,15}"
+              />
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="flight-submit-btn"
+            id="submitBtn"
+          >
+            Book Now
+          </button>
+        </form>
+      </div>
+    </main>
+
+    <footer class="flight-booking-footer">
+      <p>✈️ Your journey begins with us</p>
+    </footer>
+  </div>
 </section>
+
+<!-- Popup -->
+<div class="flight-popup-overlay" id="popupOverlay">
+  <div class="flight-popup-content">
+    <div class="flight-popup-icon">✅</div>
+    <h2 class="flight-popup-title">Booking Received!</h2>
+    <p class="flight-popup-message" id="popupMessage">
+      Our expert will contact you shortly
+    </p>
+    <button class="flight-popup-close-btn" id="closePopup">Close</button>
+  </div>
+</div>
+
+<script>
+  const defaultConfig = {
+    company_name: "Fly Light Tours and Travels",
+    form_title: "Book Your Flight",
+    submit_button_text: "Book Now",
+    popup_message: "Our expert will contact you shortly",
+    background_color: "#ffffff",
+    gradient_color: "#1a7a3e",
+    text_color: "#000000",
+    button_color: "#1a7a3e",
+    accent_color: "#2d9f5a",
+    font_family: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
+    font_size: 16
+  };
+
+  async function onConfigChange(config) {
+    const companyName = document.getElementById("companyName");
+    const formTitle = document.getElementById("formTitle");
+    const submitBtn = document.getElementById("submitBtn");
+    const popupMessage = document.getElementById("popupMessage");
+    const pageWrapper = document.querySelector(".flight-booking-wrapper");
+    const formSection = document.querySelector(".flight-form-section");
+    const header = document.querySelector(".flight-booking-header");
+    const footer = document.querySelector(".flight-booking-footer");
+    const bookingContainer = document.querySelector(".flight-booking-container");
+
+    const baseSize = config.font_size || defaultConfig.font_size;
+    const customFont = config.font_family || defaultConfig.font_family;
+    const baseFontStack = "Segoe UI, Tahoma, Geneva, Verdana, sans-serif";
+
+    companyName.textContent =
+      config.company_name || defaultConfig.company_name;
+    formTitle.textContent =
+      config.form_title || defaultConfig.form_title;
+    submitBtn.textContent =
+      config.submit_button_text || defaultConfig.submit_button_text;
+    popupMessage.textContent =
+      config.popup_message || defaultConfig.popup_message;
+
+    pageWrapper.style.background =
+      config.background_color || defaultConfig.background_color;
+    header.style.background =
+      config.background_color || defaultConfig.background_color;
+    footer.style.background =
+      config.background_color || defaultConfig.background_color;
+    bookingContainer.style.background =
+      config.background_color || defaultConfig.background_color;
+
+    const gradientColor =
+      config.gradient_color || defaultConfig.gradient_color;
+    const accentColor = config.accent_color || defaultConfig.accent_color;
+    const bgColor = config.background_color || defaultConfig.background_color;
+
+    formSection.style.background = `linear-gradient(to bottom, ${gradientColor} 0%, ${accentColor} 50%, ${bgColor} 100%)`;
+
+    companyName.style.color =
+      config.text_color || defaultConfig.text_color;
+    formTitle.style.color =
+      config.text_color || defaultConfig.text_color;
+
+    submitBtn.style.background =
+      config.button_color || defaultConfig.button_color;
+
+    companyName.style.fontFamily = `${customFont}, ${baseFontStack}`;
+    formTitle.style.fontFamily = `${customFont}, ${baseFontStack}`;
+    submitBtn.style.fontFamily = `${customFont}, ${baseFontStack}`;
+
+    companyName.style.fontSize = `${baseSize * 2}px`;
+    formTitle.style.fontSize = `${baseSize * 1.125}px`;
+    submitBtn.style.fontSize = `${baseSize}px`;
+
+    const labels = document.querySelectorAll(".flight-form-group label");
+    labels.forEach((label) => {
+      label.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      label.style.fontSize = `${baseSize * 0.9375}px`;
+      label.style.color = config.text_color || defaultConfig.text_color;
+    });
+
+    const inputs = document.querySelectorAll(
+      ".flight-form-group input, .flight-form-group select"
+    );
+    inputs.forEach((input) => {
+      input.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      input.style.fontSize = `${baseSize * 0.9375}px`;
+    });
+  }
+
+  function mapToCapabilities(config) {
+    return {
+      recolorables: [
+        {
+          get: () =>
+            config.background_color || defaultConfig.background_color,
+          set: (value) => {
+            config.background_color = value;
+            if (window.elementSdk) {
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          }
+        },
+        {
+          get: () =>
+            config.gradient_color || defaultConfig.gradient_color,
+          set: (value) => {
+            config.gradient_color = value;
+            if (window.elementSdk) {
+              window.elementSdk.setConfig({ gradient_color: value });
+            }
+          }
+        },
+        {
+          get: () => config.text_color || defaultConfig.text_color,
+          set: (value) => {
+            config.text_color = value;
+            if (window.elementSdk) {
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          }
+        },
+        {
+          get: () =>
+            config.button_color || defaultConfig.button_color,
+          set: (value) => {
+            config.button_color = value;
+            if (window.elementSdk) {
+              window.elementSdk.setConfig({ button_color: value });
+            }
+          }
+        },
+        {
+          get: () => config.accent_color || defaultConfig.accent_color,
+          set: (value) => {
+            config.accent_color = value;
+            if (window.elementSdk) {
+              window.elementSdk.setConfig({ accent_color: value });
+            }
+          }
+        }
+      ],
+      borderables: [],
+      fontEditable: {
+        get: () => config.font_family || defaultConfig.font_family,
+        set: (value) => {
+          config.font_family = value;
+          if (window.elementSdk) {
+            window.elementSdk.setConfig({ font_family: value });
+          }
+        }
+      },
+      fontSizeable: {
+        get: () => config.font_size || defaultConfig.font_size,
+        set: (value) => {
+          config.font_size = value;
+          if (window.elementSdk) {
+            window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      }
+    };
+  }
+
+  function mapToEditPanelValues(config) {
+    return new Map([
+      ["company_name", config.company_name || defaultConfig.company_name],
+      ["form_title", config.form_title || defaultConfig.form_title],
+      [
+        "submit_button_text",
+        config.submit_button_text || defaultConfig.submit_button_text
+      ],
+      ["popup_message", config.popup_message || defaultConfig.popup_message]
+    ]);
+  }
+
+  if (window.elementSdk) {
+    window.elementSdk.init({
+      defaultConfig,
+      onConfigChange,
+      mapToCapabilities,
+      mapToEditPanelValues
+    });
+  }
+
+  const oneWayRadio = document.getElementById("oneWay");
+  const twoWayRadio = document.getElementById("twoWay");
+  const returnDateGroup = document.getElementById("returnDateGroup");
+  const returnDateInput = document.getElementById("returnDate");
+  const bookingForm = document.getElementById("bookingForm");
+  const popupOverlay = document.getElementById("popupOverlay");
+  const closePopupBtn = document.getElementById("closePopup");
+  const journeyDateInput = document.getElementById("journeyDate");
+
+  const today = new Date().toISOString().split("T")[0];
+  journeyDateInput.setAttribute("min", today);
+  returnDateInput.setAttribute("min", today);
+
+  function toggleReturnDate() {
+    if (twoWayRadio.checked) {
+      returnDateGroup.classList.add("visible");
+      returnDateInput.required = true;
+    } else {
+      returnDateGroup.classList.remove("visible");
+      returnDateInput.required = false;
+      returnDateInput.value = "";
+    }
+  }
+
+  oneWayRadio.addEventListener("change", toggleReturnDate);
+  twoWayRadio.addEventListener("change", toggleReturnDate);
+
+  journeyDateInput.addEventListener("change", function () {
+    returnDateInput.setAttribute("min", this.value);
+    if (returnDateInput.value && returnDateInput.value < this.value) {
+      returnDateInput.value = "";
+    }
+  });
+
+  bookingForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const submitBtn = document.getElementById("submitBtn");
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
+
+    const formData = new FormData(bookingForm);
+
+    fetch(bookingForm.action, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json"
+      }
+    })
+      .then(() => {
+        popupOverlay.classList.add("active");
+        bookingForm.reset();
+        submitBtn.disabled = false;
+        submitBtn.textContent =
+          window.elementSdk?.config?.submit_button_text ||
+          defaultConfig.submit_button_text;
+        toggleReturnDate();
+      })
+      .catch(() => {
+        popupOverlay.classList.add("active");
+        bookingForm.reset();
+        submitBtn.disabled = false;
+        submitBtn.textContent =
+          window.elementSdk?.config?.submit_button_text ||
+          defaultConfig.submit_button_text;
+        toggleReturnDate();
+      });
+  });
+
+  closePopupBtn.addEventListener("click", function () {
+    popupOverlay.classList.remove("active");
+  });
+
+  popupOverlay.addEventListener("click", function (e) {
+    if (e.target === popupOverlay) {
+      popupOverlay.classList.remove("active");
+    }
+  });
+</script>
+
 
 <!--Request End-->
         <!--About Three Start-->
@@ -1429,6 +1772,7 @@
 
 
 </html>
+
 
 
 
