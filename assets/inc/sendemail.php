@@ -32,14 +32,14 @@ try {
 	$mail->isSMTP();                                            //Send using SMTP
 	$mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
 	$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-	$mail->Username   = SMTP_EMAIL;                     //SMTP username
-	$mail->Password   = SMTP_PASSWORD;                               //SMTP password
+	$mail->Username   = demo.fltt@gmail.com;                     //SMTP username
+	$mail->Password   = dlev ulcw xjhf pkrv;                               //SMTP password
 	$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
 	$mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
 	//Recipients
-	$mail->setFrom(HOST_EMAIL, HOST_NAME);
-	$mail->addAddress(RECIPIENT_EMAIL, RECIPIENT_NAME);     //Add a recipient
+	$mail->setFrom(demo.fltt@gmail.com, Demo);
+	$mail->addAddress(flylighttoursandtravels@gmail.com, FLTT);     //Add a recipient
 
 	//Content
 	$name = isset($_POST['name']) ? preg_replace("/[^\.\-\' a-zA-Z0-9]/", "", $_POST['name']) : "";
@@ -80,4 +80,5 @@ try {
 } catch (Exception $e) {
 	echo "<div class='inner error'><p class='error'>Message could not be sent. Mailer Error: {$mail->ErrorInfo}</p></div><!-- /.inner -->";
 }
+
 
