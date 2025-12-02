@@ -436,9 +436,8 @@ ul {
 }
 
 
-/*--------------------------------------------------------------
-# Navigations One
---------------------------------------------------------------*/
+
+
 
 /***************/
 
@@ -470,19 +469,7 @@ html, body {
   box-sizing: border-box;
 }
 
-/* 4) clamp swiper / slider and background layers if present */
-.swiper-container,
-.swiper-wrapper,
-.swiper-slide,
-.image-layer-three,
-.main-slider-three .img {
-  width: 100% !important;
-  max-width: 100% !important;
-  box-sizing: border-box !important;
-  overflow: hidden !important;
-  background-size: cover;
-  background-position: center;
-}
+
 
 /* 5) reduce header/menu horizontal padding on small screens */
 @media (max-width: 991px) {
@@ -507,6 +494,9 @@ html, body {
 /*+++++++++ */
 
 
+/*--------------------------------------------------------------
+# Navigations One
+--------------------------------------------------------------*/
 
 .main-header {
   background: transparent;
