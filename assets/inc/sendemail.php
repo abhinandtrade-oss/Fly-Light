@@ -2,17 +2,14 @@
 
 // Define Host Info || Who is sending emails?
 define("HOST_NAME", "Poitech Mailer");
-define("HOST_EMAIL", "poitech@mail.com");
-
+define("HOST_EMAIL", "demo.fltt@gmail.com");
 // Define SMTP Credentials || Gmail Informations
-define("SMTP_EMAIL", "mail@gmail.com");
-define("SMTP_PASSWORD", "your_gmail_pass"); // read documentations
-
+define("SMTP_EMAIL", "demo.fltt@gmail.com")
+define("SMTP_PASSWORD", "dlev ulcw xjhf pkrv");
 
 // Define Recipent Info ||  Who will get this email?
 define("RECIPIENT_NAME", "John Doe");
-define("RECIPIENT_EMAIL", "jhon@mail.com");
-
+define("RECIPIENT_EMAIL", "flylighttoursandtravels@gmail.com");
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -83,3 +80,4 @@ try {
 } catch (Exception $e) {
 	echo "<div class='inner error'><p class='error'>Message could not be sent. Mailer Error: {$mail->ErrorInfo}</p></div><!-- /.inner -->";
 }
+
