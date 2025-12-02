@@ -171,8 +171,25 @@
 
         <!--Page Header Start-->
         <section class="page-header">
-            <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg)">
-            </div>
+            <div id="page-header-bg" class="page-header-bg"></div>
+
+<script>
+  // Fetch the JSON file
+  fetch('assets/data/data.json')
+    .then(response => response.json())
+    .then(data => {
+      // Get the image URL using short ID IM-138
+      const imgUrl = data["IM-138"];
+
+      if (imgUrl) {
+        document.getElementById("page-header-bg").style.backgroundImage = `url(${imgUrl})`;
+      } else {
+        console.error("IM-138 not found in data.json");
+      }
+    })
+    .catch(err => console.error("Error loading image JSON", err));
+</script>
+
             <div class="container">
                 <div class="page-header__inner">
                     <h2>404 error</h2>
@@ -429,3 +446,4 @@
 
 
 </html>
+
