@@ -11688,3 +11688,256 @@ body.boxed-wrapper {
   }
 }
 
+/*--------------------------------------------------------------
+# contact page form
+--------------------------------------------------------------*/
+
+/* gridify-contact.css
+   Styles for Gridify contact form
+*/
+
+:root{
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --text: #1a202c;
+  --muted: #718096;
+  --input-border: #cbd5e0;
+  --accent-1: #667eea;
+  --accent-2: #764ba2;
+  --danger: #e53e3e;
+  --card-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  --popup-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  --radius: 16px;
+  --radius-sm: 8px;
+  --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html,body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-stack);
+  background: var(--bg);
+  min-height: 100%;
+  width: 100%;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Outer wrapper to let you paste into any page */
+.gridify-contact-wrapper {
+  width: 100%;
+  min-height: 100%;
+  padding: 3% 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card */
+.gridify-contact-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  padding: 3.5% 4%;
+  width: 100%;
+  max-width: 700px;
+}
+
+/* Header */
+.gridify-contact-header {
+  text-align: center;
+  margin-bottom: 3%;
+}
+
+.gridify-contact-title {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 1% 0;
+  letter-spacing: -0.5px;
+}
+
+.gridify-contact-subtitle {
+  font-size: 1.1em;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Sections */
+.gridify-section {
+  margin-bottom: 3%;
+}
+
+.gridify-section-title {
+  font-size: 1.3em;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 2% 0;
+  padding-bottom: 1.2%;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+/* Form elements */
+.gridify-form-group {
+  margin-bottom: 2.5%;
+}
+
+.gridify-label {
+  display: block;
+  font-size: 0.95em;
+  font-weight: 500;
+  color: #4a5568;
+  margin-bottom: 1%;
+}
+
+.gridify-required {
+  color: var(--danger);
+  margin-left: 3px;
+}
+
+.gridify-input,
+.gridify-select,
+.gridify-textarea {
+  width: 100%;
+  padding: 2.5% 3%;
+  font-size: 1em;
+  color: var(--text);
+  background: #ffffff;
+  border: 1.5px solid var(--input-border);
+  border-radius: var(--radius-sm);
+  transition: all 0.25s ease;
+  font-family: inherit;
+}
+
+.gridify-input:focus,
+.gridify-select:focus,
+.gridify-textarea:focus {
+  outline: none;
+  border-color: var(--accent-1);
+  box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+}
+
+.gridify-textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.gridify-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234a5568' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 3% center;
+  padding-right: 10%;
+}
+
+/* Button */
+.gridify-submit {
+  width: 100%;
+  padding: 3% 0;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 100%);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 2%;
+  letter-spacing: 0.5px;
+}
+
+.gridify-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102,126,234,0.3);
+}
+
+.gridify-submit:active {
+  transform: translateY(0);
+}
+
+.gridify-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Popup */
+.gridify-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.gridify-popup-overlay.active {
+  display: flex;
+}
+
+.gridify-popup {
+  background: #ffffff;
+  border-radius: var(--radius);
+  padding: 4%;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: var(--popup-shadow);
+  animation: gridifyPopup 0.3s ease;
+}
+
+@keyframes gridifyPopup {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.gridify-popup-icon {
+  font-size: 3.5em;
+  margin-bottom: 3%;
+}
+
+.gridify-popup-title {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 2% 0;
+}
+
+.gridify-popup-message {
+  font-size: 1em;
+  color: var(--muted);
+  margin: 0 0 4% 0;
+  line-height: 1.6;
+}
+
+.gridify-popup-button {
+  padding: 3% 8%;
+  font-size: 1em;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 100%);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.gridify-popup-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102,126,234,0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .gridify-contact-title { font-size: 2em; }
+  .gridify-contact-subtitle { font-size: 1em; }
+  .gridify-section-title { font-size: 1.15em; }
+}
