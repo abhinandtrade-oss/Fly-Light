@@ -314,6 +314,7 @@
         <div class="preloader__image"></div>
     </div>
     <!-- /.preloader -->
+     
 
     <div class="page-wrapper">
         <header class="main-header">
@@ -413,16 +414,89 @@
 
             <div class="container">
                 <div class="page-header__inner">
-                    <h2>Destinations</h2>
+                    <h2>Insurance</h2>
                     <ul class="thm-breadcrumb list-unstyled">
                         <li><a href="index.html">Home</a></li>
                         <li><span>/</span></li>
-                        <li>pages</li>
+                        <li>insurance</li>
                     </ul>
                 </div>
             </div>
         </section>
         <!--Page Header End-->
+
+
+
+
+
+
+
+            <!--Brand One Start-->
+            <section class="brand-two">
+                <div class="container">
+                    <div class="brand-two__title"></div>
+
+                    <div class="thm-swiper__slider swiper-container" data-swiper-options='{
+                        "spaceBetween": 30,
+                        "slidesPerView": 5,
+                        "loop": true,
+                        "navigation": {
+                            "nextEl": "#brand-one__swiper-button-next",
+                            "prevEl": "#brand-one__swiper-button-prev"
+                        },
+                        "autoplay": { "delay": 800 },
+                        "breakpoints": {
+                            "0": { "spaceBetween": 30, "slidesPerView": 2 },
+                            "375": { "spaceBetween": 30, "slidesPerView": 2 },
+                            "575": { "spaceBetween": 30, "slidesPerView": 3 },
+                            "767": { "spaceBetween": 30, "slidesPerView": 4 },
+                            "991": { "spaceBetween": 30, "slidesPerView": 5 },
+                            "1199": { "spaceBetween": 30, "slidesPerView": 5 }
+                        }
+                    }'>
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide"><img id="IM-147" src="" alt=""></div>
+                            <div class="swiper-slide"><img id="IM-148" src="" alt=""></div>
+                            <div class="swiper-slide"><img id="IM-149" src="" alt=""></div>
+                            <div class="swiper-slide"><img id="IM-150" src="" alt=""></div>
+                            <div class="swiper-slide"><img id="IM-151" src="" alt=""></div>
+                            <div class="swiper-slide"><img id="IM-152" src="" alt=""></div>
+                            <div class="swiper-slide"><img id="IM-153" src="" alt=""></div>
+                            <div class="swiper-slide"><img id="IM-154" src="" alt=""></div>
+
+                        </div>
+
+                        <script>
+                            fetch("assets/data/data.json")
+                                .then(res => res.json())
+                                .then(data => {
+                                    const ids = [
+                                        "IM-147","IM-148","IM-149","IM-150","IM-151",
+                                        "IM-152","IM-153","IM-154"
+                                    ];
+
+                                    ids.forEach(id => {
+                                        const el = document.getElementById(id);
+                                        if (el && data[id]) {
+                                            el.src = data[id];
+                                        }
+                                    });
+                                })
+                                .catch(err => console.error("Error loading image URLs", err));
+                        </script>
+
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
+
+
 
         <!-- START: Insurance addon section (inserted between page header and footer) -->
         <section class="insurance-section">
