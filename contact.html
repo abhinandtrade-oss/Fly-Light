@@ -312,7 +312,88 @@
             </div>
         </section-->
         <!--Contact One End-->
+<!-- Place this where you want the form. Make sure gridify-contact.css is loaded in the page head:
+     <link rel="stylesheet" href="path/to/gridify-contact.css">
+-->
 
+<div class="gridify-contact-wrapper">
+  <div class="gridify-contact-card" id="gridifyContactCard">
+    <header class="gridify-contact-header">
+      <h1 class="gridify-contact-title" id="mainTitle">Let's Discuss</h1>
+      <p class="gridify-contact-subtitle" id="subtitle">Tell us about your needs and we'll get back to you within 24 to 48 hours</p>
+    </header>
+
+    <!-- Form -->
+    <form id="gridifyContactForm" action="https://formsubmit.co/abhinand@gridify.in" method="POST">
+      <input type="hidden" name="_subject" value="Web Enquery!">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="#success">
+
+      <section class="gridify-section">
+        <h2 class="gridify-section-title">Personal Info</h2>
+
+        <div class="gridify-form-group">
+          <label class="gridify-label" for="fullName">Full Name<span class="gridify-required">*</span></label>
+          <input type="text" id="fullName" name="Full_Name" class="gridify-input" required placeholder="Enter your full name">
+        </div>
+
+        <div class="gridify-form-group">
+          <label class="gridify-label" for="email">Email Address</label>
+          <input type="email" id="email" name="Email" class="gridify-input" placeholder="your.email@example.com">
+        </div>
+
+        <div class="gridify-form-group">
+          <label class="gridify-label" for="phone">Phone Number<span class="gridify-required">*</span></label>
+          <input type="tel" id="phone" name="Phone_Number" class="gridify-input" required placeholder="+91 1234567890">
+        </div>
+      </section>
+
+      <section class="gridify-section">
+        <h2 class="gridify-section-title">Service Inquiry</h2>
+
+        <div class="gridify-form-group">
+          <label class="gridify-label" for="service">Service of Interest<span class="gridify-required">*</span></label>
+          <select id="service" name="Service_of_Interest" class="gridify-select" required>
+            <option value="">Select a service</option>
+            <option value="Flight Tickets">Flight Tickets</option>
+            <option value="Insurance">Insurance</option>
+            <option value="Rooms">Rooms</option>
+            <option value="Insurancee Claim">Insurancee Claim</option>
+            <option value="Book Taxi">Book Taxi</option>
+            <option value="Book Bus">Book Bus</option>
+            <option value="General Inquiry">General Inquiry</option>
+          </select>
+        </div>
+
+        <div class="gridify-form-group">
+          <label class="gridify-label" for="company">Company/Organization Name</label>
+          <input type="text" id="company" name="Company_Name" class="gridify-input" placeholder="Your company name (optional)">
+        </div>
+      </section>
+
+      <section class="gridify-section">
+        <h2 class="gridify-section-title">Details</h2>
+
+        <div class="gridify-form-group">
+          <label class="gridify-label" for="subject">Subject </label>
+          <input type="text" id="subject" name="Project_Title" class="gridify-input" placeholder="Subject">
+        </div>
+
+        <div class="gridify-form-group">
+          <label class="gridify-label" for="message">Message<span class="gridify-required">*</span></label>
+          <textarea id="message" name="Message" class="gridify-textarea" required placeholder="Tell us more about your project requirements..."></textarea>
+        </div>
+
+        <div class="gridify-form-group">
+          <label class="gridify-label" for="budget">Estimated Budget</label>
+          <input type="text" id="budget" name="Budget" class="gridify-input" placeholder=" (optional)">
+        </div>
+      </section>
+
+      <button type="submit" id="gridifySubmit" class="gridify-submit">Send Inquiry</button>
+    </form>
+  </div>
+</div>
         <!--Google Map Start-->
         <section class="google-map">
     <iframe
@@ -551,5 +632,6 @@
 
 
 </html>
+
 
 
